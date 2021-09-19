@@ -51,4 +51,9 @@ public class OperatorRepositoryImpl implements OperatorRepository<String, Operat
     public void save(Operator operator) {
         operatorList.add(operator);
     }
+
+    @Override
+    public boolean haveAvailableOperators() {
+        return operatorList.stream().anyMatch(Operator::isAvailable);
+    }
 }
