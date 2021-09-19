@@ -2,30 +2,30 @@ package com.epam.jwd.repository.entity;
 
 import java.util.Objects;
 
-public class Person<T> {
+public class Person<T> extends Thread {
 
-    private T id;
-    private String name;
+    private T personId;
+    private String personName;
 
     public Person(T id, String name) {
-        this.id = id;
-        this.name = name;
+        this.personId = id;
+        this.personName = name;
     }
 
-    public T getId() {
-        return id;
+    public T getPersonId() {
+        return personId;
     }
 
-    public void setId(T id) {
-        this.id = id;
+    public void setPersonId(T personId) {
+        this.personId = personId;
     }
 
-    public String getName() {
-        return name;
+    public String getPersonName() {
+        return personName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPersonName(String name) {
+        this.personName = name;
     }
 
     @Override
@@ -33,20 +33,20 @@ public class Person<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person<?> person = (Person<?>) o;
-        return id.equals(person.id)
-                && name.equals(person.name);
+        return personId.equals(person.personId)
+                && personName.equals(person.personName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(personId, personName);
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id=" + personId +
+                ", name='" + personName + '\'' +
                 '}';
     }
 }
