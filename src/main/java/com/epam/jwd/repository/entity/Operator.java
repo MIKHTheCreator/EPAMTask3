@@ -2,7 +2,7 @@ package com.epam.jwd.repository.entity;
 
 import java.util.Objects;
 
-public class Operator extends Person<String>{
+public class Operator extends Person<String> {
 
     private int age;
     private int workPosition;
@@ -35,8 +35,18 @@ public class Operator extends Person<String>{
         return isAvailable;
     }
 
+    public void serveClient(User user) {
+        setAvailable(false);
+
+    }
+
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    @Override
+    public void run() {
+
     }
 
     @Override
@@ -59,7 +69,7 @@ public class Operator extends Person<String>{
     @Override
     public String toString() {
         return "Operator{" +
-                "name=" + this.getName() +
+                "name=" + this.getPersonName() +
                 ", available=" + isAvailable +
                 ", age=" + age +
                 ", workPosition=" + workPosition +
