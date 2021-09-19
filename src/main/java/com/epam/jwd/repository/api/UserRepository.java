@@ -1,14 +1,10 @@
 package com.epam.jwd.repository.api;
 
 import com.epam.jwd.repository.entity.Person;
-
-import java.util.List;
+import com.epam.jwd.repository.entity.User;
 
 public interface UserRepository<V, T extends Person<V>> {
 
-    T findById(V id);
-    T findByName(String name);
-    boolean removeUser(String name);
+    User removeUser(String name);
     void save(T user);
-    List<T> findByGender(String gender);
 }

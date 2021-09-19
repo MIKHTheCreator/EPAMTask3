@@ -24,22 +24,6 @@ public class OperatorRepositoryImpl implements OperatorRepository<String, Operat
     }
 
     @Override
-    public Operator findById(String id) {
-        return operatorList.stream()
-                .filter(operator -> operator.getId().equals(id))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    public Operator findByName(String name) {
-        return operatorList.stream()
-                .filter(operator -> operator.getName().equals(name))
-                .findFirst()
-                .get();
-    }
-
-    @Override
     public boolean removeOperator(String name) {
         return operatorList.remove(operatorList.stream()
                 .filter(operator -> operator.getName().equals(name))
