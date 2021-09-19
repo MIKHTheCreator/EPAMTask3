@@ -39,6 +39,19 @@ public class User extends Person<String> {
         this.visitAim = visitAim;
     }
 
+    public void call() {
+
+    }
+
+    public void endCall() {
+
+    }
+
+    @Override
+    public void run() {
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
