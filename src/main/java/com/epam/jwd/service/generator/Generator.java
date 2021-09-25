@@ -17,10 +17,11 @@ public class Generator {
     public static final String GENERATE_AGE_LOG_MESSAGE = "Generating age...";
     public static final String GENERATE_GENDER_LOG_MESSAGE = "Generating gender...";
     public static final String GENERATE_VISIT_AIM_LOG_MESSAGE = "Generating visit aim...";
+    private static final int MAX_PERSON_AGE = 100;
 
     static {
         names = new String[]{"Misha", "Roma", "Liza", "Markiz", "Eric", "Marat"};
-        aims = new String[]{"Selling problems", "Payment method problems", "Bad connection", "Resource not found"};
+        aims = new String[]{"'Selling problems'", "'Payment method problems'", "'Bad connection'", "'Resource not found'"};
     }
 
     public static String generateId() {
@@ -35,7 +36,7 @@ public class Generator {
 
     public static int generateAge(Random random) {
         log.debug(GENERATE_AGE_LOG_MESSAGE);
-        return random.nextInt(100);
+        return random.nextInt(MAX_PERSON_AGE);
     }
 
     public static Gender generateGender(Random random) {
