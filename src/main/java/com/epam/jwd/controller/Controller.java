@@ -15,9 +15,9 @@ public class Controller {
 
         UserProducer userGenerator = new UserProducer(callCenterService, 10);
 
-        OperatorLoader loader = new OperatorLoader(callCenterService);
-        OperatorLoader loader1 = new OperatorLoader(callCenterService);
-        OperatorLoader loader2 = new OperatorLoader(callCenterService);
+        OperatorLoader loader = new OperatorLoader(callCenterService, "ORBO-1");
+        OperatorLoader loader1 = new OperatorLoader(callCenterService, "ORBO-2");
+        OperatorLoader loader2 = new OperatorLoader(callCenterService, "ORBO-3");
 
 
         ExecutorService service = Executors.newCachedThreadPool();
