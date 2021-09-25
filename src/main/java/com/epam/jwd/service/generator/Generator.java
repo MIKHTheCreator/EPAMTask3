@@ -20,7 +20,7 @@ public class Generator {
     private static final int MAX_PERSON_AGE = 100;
 
     static {
-        names = new String[]{"Misha", "Roma", "Liza", "Markiz", "Eric", "Marat"};
+        names = new String[]{"Superman", "Mario", "Mister X", "Batman", "Spider-Man", "Iron Man", "Kirkorov"};
         aims = new String[]{"'Selling problems'", "'Payment method problems'", "'Bad connection'", "'Resource not found'"};
     }
 

@@ -35,7 +35,6 @@ public class UserProducer implements Runnable{
 
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 
-                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
