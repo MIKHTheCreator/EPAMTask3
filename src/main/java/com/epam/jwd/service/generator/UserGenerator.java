@@ -28,10 +28,13 @@ public class UserGenerator implements Runnable{
 
         for(int i = 0; i < userCount; i++) {
             try {
-                callCenterService.saveUser(new User(Generator.generateId(), Generator.generateName(random),
+                User user = new User(Generator.generateId(), Generator.generateName(random),
                         Generator.generateAge(random), Generator.generateGender(random),
-                        Generator.generateVisitAim(random)));
+                        Generator.generateVisitAim(random));
+                callCenterService.saveUser(user);
+
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
