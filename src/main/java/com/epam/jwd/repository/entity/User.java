@@ -39,17 +39,12 @@ public class User extends Person<String> {
         this.visitAim = visitAim;
     }
 
-    public void call() {
-
-    }
-
     public void endCall() {
-
+        Thread.currentThread().interrupt();
     }
 
-    @Override
-    public void run() {
-
+    public void recall() {
+        System.out.println("Recalling");
     }
 
     @Override
@@ -72,7 +67,7 @@ public class User extends Person<String> {
     @Override
     public String toString() {
         return "User{" +
-                "name=" + this.getName() +
+                "name=" + this.getPersonName() +
                 ", age=" + age +
                 ", gender=" + gender +
                 ", visitAim='" + visitAim + '\'' +

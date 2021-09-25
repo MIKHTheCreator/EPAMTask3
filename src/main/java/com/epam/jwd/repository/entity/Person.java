@@ -2,7 +2,7 @@ package com.epam.jwd.repository.entity;
 
 import java.util.Objects;
 
-public class Person<T> extends Thread {
+public class Person<T> {
 
     private T personId;
     private String personName;
