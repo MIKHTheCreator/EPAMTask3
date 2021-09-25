@@ -13,7 +13,7 @@ public class Controller {
     public static void main(String[] args) {
         CallCenterService callCenterService = new CallCenterServiceImpl();
 
-        UserProducer userGenerator = new UserProducer(callCenterService, 10);
+        UserProducer userGenerator = new UserProducer(callCenterService, 100);
 
         OperatorLoader loader = new OperatorLoader(callCenterService, "ORBO-1");
         OperatorLoader loader1 = new OperatorLoader(callCenterService, "ORBO-2");

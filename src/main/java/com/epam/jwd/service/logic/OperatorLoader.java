@@ -15,7 +15,7 @@ public class OperatorLoader implements Runnable{
     private static final Logger log = LogManager.getLogger(OperatorLoader.class);
 
     private static final String SERVING_USER_INFO_MESSAGE = """
-            User %s is served by Operator=%s(Spent time: %d seconds),
+            User %s is served by OperatorName = %s(Call time: %d seconds),
              his/her objective was %s,
              his/her age was %d,
              his/her gender was %s
