@@ -1,7 +1,7 @@
 package com.epam.jwd.controller;
 
 import com.epam.jwd.service.api.CallCenterService;
-import com.epam.jwd.service.generator.UserGenerator;
+import com.epam.jwd.service.generator.UserProducer;
 import com.epam.jwd.service.impl.CallCenterServiceImpl;
 import com.epam.jwd.service.logic.OperatorLoader;
 
@@ -13,7 +13,7 @@ public class Controller {
     public static void main(String[] args) {
         CallCenterService callCenterService = new CallCenterServiceImpl();
 
-        UserGenerator userGenerator = new UserGenerator(callCenterService, 10);
+        UserProducer userGenerator = new UserProducer(callCenterService, 10);
 
         OperatorLoader loader = new OperatorLoader(callCenterService);
         OperatorLoader loader1 = new OperatorLoader(callCenterService);

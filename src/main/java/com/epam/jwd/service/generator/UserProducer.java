@@ -7,17 +7,17 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
-public class UserGenerator implements Runnable{
+public class UserProducer implements Runnable{
 
     private final CallCenterService callCenterService;
     private final int userCount;
     private final Random random;
 
-    private static final Logger log = LogManager.getLogger(UserGenerator.class);
+    private static final Logger log = LogManager.getLogger(UserProducer.class);
     private static final String GENERATOR_MULTI_USER_LOG_MESSAGE = "User has been generated";
     private static final String THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
 
-    public UserGenerator(CallCenterService callCenterService, int userCount) {
+    public UserProducer(CallCenterService callCenterService, int userCount) {
         this.callCenterService = callCenterService;
         this.userCount = userCount;
         this.random = new Random();
