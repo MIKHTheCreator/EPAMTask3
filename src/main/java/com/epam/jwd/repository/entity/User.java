@@ -39,14 +39,6 @@ public class User extends Person<String> {
         this.visitAim = visitAim;
     }
 
-    public void endCall() {
-        Thread.currentThread().interrupt();
-    }
-
-    public void recall() {
-        System.out.println("Recalling");
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
