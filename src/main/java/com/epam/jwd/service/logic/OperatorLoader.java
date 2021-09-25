@@ -14,7 +14,8 @@ public class OperatorLoader implements Runnable{
 
     private static final Logger log = LogManager.getLogger(OperatorLoader.class);
 
-    private static final String SERVING_USER_INFO_MESSAGE = "User %s is serving by Operator=%s(Spent time: %d seconds),\n his/her objective is %s,\n his/her age is %d,\n his/her gender is %s\n";
+    private static final String SERVING_USER_INFO_MESSAGE = "User %s is serving by Operator=%s(Spent time: %d seconds)," +
+            "\n his/her objective is %s,\n his/her age is %d,\n his/her gender is %s\n\n";
     private static final String SERVING_USER_LOG_MESSAGE = "User has been gotten from queue by operator";
     private static final String INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
     private static final int MILLISECONDS_TO_SECONDS_DELIMITER = 1000;
