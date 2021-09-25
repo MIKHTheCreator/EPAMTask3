@@ -25,11 +25,10 @@ public class OperatorLoader implements Runnable{
         while(true) {
             try {
                 User user = callCenterService.getUserFromTheQueue();
-                if(user != null){
-                    log.debug(SERVING_USER_LOG_MESSAGE);
-                    System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(), user.getVisitAim(),
-                            user.getAge(), user.getGender().toString());
-                }
+                log.debug(SERVING_USER_LOG_MESSAGE);
+                System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(), user.getVisitAim(),
+                        user.getAge(), user.getGender().toString());
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
