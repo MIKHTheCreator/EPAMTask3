@@ -5,8 +5,8 @@ import java.util.Random;
 public class WorkingTimeGenerator {
     private final Random random;
 
-    public WorkingTimeGenerator(Random random) {
-        this.random = random;
+    public WorkingTimeGenerator() {
+        this.random = new Random();
     }
 
     public int generateTime() {
