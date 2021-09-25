@@ -5,7 +5,7 @@ import java.util.Random;
 public class WorkingTimeGenerator {
     private final Random random;
 
-    private static final int MAX_WORKING_TIME = 30000;
+    private static final int MAX_WORKING_TIME = 10000;
     private static final int MIN_WORKING_TIME = 3000;
 
     public WorkingTimeGenerator() {
