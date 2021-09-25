@@ -7,5 +7,4 @@ public interface CallCenterService {
 
     User getUserFromTheQueue() throws InterruptedException;
     void saveUser(User user) throws InterruptedException;
-
 }
