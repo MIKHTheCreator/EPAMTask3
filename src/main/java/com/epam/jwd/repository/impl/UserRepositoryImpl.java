@@ -35,4 +35,8 @@ public class UserRepositoryImpl implements UserRepository<String, User> {
         userStorage.put(user);
     }
 
+    @Override
+    public boolean containsUser(User user) {
+        return userStorage.contains(user);
+    }
 }

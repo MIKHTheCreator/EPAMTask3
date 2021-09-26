@@ -9,4 +9,5 @@ public interface CallCenterService {
     void saveUser(User user) throws InterruptedException;
     void addUserToUserCache(User user);
     User takeUserFromUserCache() throws InterruptedException;
+    boolean containsUser(User user);
 }

@@ -17,6 +17,7 @@ public class UserProducer implements Runnable{
     private static final Logger log = LogManager.getLogger(UserProducer.class);
     private static final String GENERATOR_MULTI_USER_LOG_MESSAGE = "User has been generated";
     private static final String THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
+    private static final String RECALLER_NAME = "Kirkorov";
 
     public UserProducer(CallCenterService callCenterService, int userCount) {
         this.callCenterService = callCenterService;
@@ -35,6 +36,7 @@ public class UserProducer implements Runnable{
                 callCenterService.saveUser(user);
                 callCenterService.addUserToUserCache(user);
 
+
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 
             } catch (InterruptedException e) {
@@ -44,4 +46,12 @@ public class UserProducer implements Runnable{
         }
     }
 
+    private void recallLogic(User user)
+            throws InterruptedException {
+        if(callCenterService.containsUser(user) && user.isRecall()
+                && user.getPersonName().equals(RECALLER_NAME)) {
+            user.endCall();
+            callCenterService.getUserFromTheQueue();
+        }
+    }
 }

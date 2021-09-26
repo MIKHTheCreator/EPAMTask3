@@ -68,4 +68,9 @@ public class CallCenterServiceImpl implements CallCenterService {
 
         return user;
     }
+
+    @Override
+    public boolean containsUser(User user) {
+        return userQueue.containsUser(user);
+    }
 }
