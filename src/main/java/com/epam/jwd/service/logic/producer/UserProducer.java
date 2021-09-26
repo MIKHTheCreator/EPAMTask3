@@ -7,12 +7,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class UserProducer implements Runnable{
 
     private final CallCenterService callCenterService;
     private final int userCount;
     private final Generator generator;
+    private final Lock lock = new ReentrantLock();
+    private  final Condition condition = lock.newCondition();
 
     private static final Logger log = LogManager.getLogger(UserProducer.class);
     private static final String THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
@@ -32,14 +37,17 @@ public class UserProducer implements Runnable{
                 User user = new User(generator.generateId(), generator.generateName(),
                         generator.generateAge(), generator.generateGender(),
                         generator.generateVisitAim(), generator.generateRecallChance());
+                lock.lock();
                 callCenterService.saveUser(user);
-                callCenterService.addUserToUserCache(user);
 
                 deleteRecaller(user);
+                condition.signalAll();
 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
+            } finally {
+                lock.unlock();
             }
         }
     }
@@ -49,7 +57,8 @@ public class UserProducer implements Runnable{
         if(callCenterService.containsUser(user) && user.isRecall()
                 && user.getPersonName().equals(RECALLER_NAME)) {
             user.endCall();
-            callCenterService.getUserFromTheQueue();
+            User deletedUser = callCenterService.getUserFromTheQueue();
+            callCenterService.addUserToUserCache(deletedUser);
         }
     }
 }
