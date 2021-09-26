@@ -9,6 +9,9 @@ public class User extends Person<String> {
     private String visitAim;
     private boolean recall;
 
+    private static final String CALLING_MESSAGE = "Calling...";
+    private static final String END_CALL_MESSAGE = "End calling...";
+
     public User(String id, String name, int age, Gender gender, String visitAim, boolean recall) {
         super(id, name);
         this.age = age;
@@ -47,6 +50,14 @@ public class User extends Person<String> {
 
     public void setRecall(boolean recall) {
         this.recall = recall;
+    }
+
+    public void call() {
+        System.out.println(CALLING_MESSAGE);
+    }
+
+    public void endCall() {
+        System.out.println(END_CALL_MESSAGE);
     }
 
     @Override
