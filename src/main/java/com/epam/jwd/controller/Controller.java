@@ -25,11 +25,11 @@ public class Controller {
         ExecutorService service = Executors.newCachedThreadPool();
 
         service.execute(userGenerator);
-        service.execute(userRecallProducer);
 
         service.execute(loader);
         service.execute(loader1);
         service.execute(loader2);
+        service.execute(userRecallProducer);
 
         service.shutdown();
     }

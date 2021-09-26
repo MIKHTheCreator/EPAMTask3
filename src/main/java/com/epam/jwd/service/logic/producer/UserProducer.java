@@ -36,7 +36,7 @@ public class UserProducer implements Runnable{
                 callCenterService.saveUser(user);
                 callCenterService.addUserToUserCache(user);
 
-                recallLogic(user);
+                deleteRecaller(user);
 
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 
@@ -47,7 +47,7 @@ public class UserProducer implements Runnable{
         }
     }
 
-    private void recallLogic(User user)
+    private void deleteRecaller(User user)
             throws InterruptedException {
         if(callCenterService.containsUser(user) && user.isRecall()
                 && user.getPersonName().equals(RECALLER_NAME)) {
