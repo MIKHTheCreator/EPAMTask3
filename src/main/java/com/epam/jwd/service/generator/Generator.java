@@ -1,8 +1,6 @@
 package com.epam.jwd.service.generator;
 
 import com.epam.jwd.repository.entity.Gender;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 import java.util.UUID;
@@ -11,7 +9,6 @@ public class Generator {
 
     private final Random random;
 
-    private static final Logger log = LogManager.getLogger(Generator.class);
     private static final String[] names;
     private static final String[] aims;
     private static final int MAX_PERSON_AGE = 100;
