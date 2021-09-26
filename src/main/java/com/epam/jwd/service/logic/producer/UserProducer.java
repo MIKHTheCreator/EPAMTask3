@@ -36,6 +36,7 @@ public class UserProducer implements Runnable{
                 callCenterService.saveUser(user);
                 callCenterService.addUserToUserCache(user);
 
+                recallLogic(user);
 
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 

@@ -10,7 +10,7 @@ public class User extends Person<String> {
     private boolean recall;
 
     private static final String CALLING_MESSAGE = "Calling...";
-    private static final String END_CALL_MESSAGE = "End calling, the queue is too big, I'll better go knitting...";
+    private static final String END_CALL_MESSAGE = "End calling, the queue is too big, I'll better go knitting...\n";
 
     public User(String id, String name, int age, Gender gender, String visitAim, boolean recall) {
         super(id, name);

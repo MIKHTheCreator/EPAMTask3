@@ -23,8 +23,10 @@ public class UserRecallProducer implements Runnable{
         while (true) {
             try {
                 User user = callCenterService.takeUserFromUserCache();
-                user.recall();
-                callCenterService.saveUser(user);
+                if(!callCenterService.containsUser(user)){
+                    user.recall();
+                    callCenterService.saveUser(user);
+                }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
