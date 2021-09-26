@@ -32,6 +32,7 @@ public class UserProducer implements Runnable{
                 User user = new User(generator.generateId(), generator.generateName(),
                         generator.generateAge(), generator.generateGender(),
                         generator.generateVisitAim(), generator.generateRecallChance());
+                user.call();
                 callCenterService.saveUser(user);
                 callCenterService.addUserToUserCache(user);
 
