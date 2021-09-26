@@ -48,4 +48,8 @@ public class Generator {
         log.debug(GENERATE_VISIT_AIM_LOG_MESSAGE);
         return aims[random.nextInt(aims.length)];
     }
+
+    public static boolean generateRecallChance(Random random) {
+        return random.nextBoolean();
+    }
 }
