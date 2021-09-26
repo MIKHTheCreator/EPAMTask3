@@ -7,12 +7,14 @@ public class User extends Person<String> {
     private int age;
     private Gender gender;
     private String visitAim;
+    private boolean recall;
 
-    public User(String id, String name, int age, Gender gender, String visitAim) {
+    public User(String id, String name, int age, Gender gender, String visitAim, boolean recall) {
         super(id, name);
         this.age = age;
         this.gender = gender;
         this.visitAim = visitAim;
+        this.recall = recall;
     }
 
     public int getAge() {
@@ -39,6 +41,14 @@ public class User extends Person<String> {
         this.visitAim = visitAim;
     }
 
+    public boolean isRecall() {
+        return recall;
+    }
+
+    public void setRecall(boolean recall) {
+        this.recall = recall;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,16 +56,16 @@ public class User extends Person<String> {
         if (!super.equals(o)) return false;
         User user = (User) o;
         return age == user.age
+                && recall == user.recall
                 && gender == user.gender
                 && visitAim.equals(user.visitAim);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), age, gender, visitAim);
+        return Objects.hash(super.hashCode(), age, gender, visitAim, recall);
     }
 
-    //ToDo replace with StringBuilder
     @Override
     public String toString() {
         return "User{" +
