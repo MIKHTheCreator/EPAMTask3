@@ -48,6 +48,7 @@ public class CallCenterServiceImpl implements CallCenterService {
 
         if(user.isRecall()) {
             userCache.addToUserCache(user);
+            condition.notifyAll();
         }
 
         lock.unlock();
