@@ -63,6 +63,7 @@ public class CallCenterServiceImpl implements CallCenterService {
         }
 
         User user = userCache.removeFromUserCache();
+        user.setRecall(false);
         lock.unlock();
 
         return user;
