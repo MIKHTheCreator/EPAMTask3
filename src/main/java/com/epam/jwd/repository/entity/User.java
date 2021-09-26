@@ -52,7 +52,7 @@ public class User extends Person<String> {
         this.recall = recall;
     }
 
-    public void call() {
+    public void recall() {
         System.out.println(CALLING_MESSAGE);
     }
 
