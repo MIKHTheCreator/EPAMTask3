@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Menu {
 
     private static final String STARTER_MENU = """
-            ////////////////MULTI-THREADING CALLCENTER IS GLAD TO SEE YOU\\\\\\\\\\\\\\\\\
+            ******************MULTI-THREADING CALLCENTER IS GLAD TO SEE YOU******************
+            
             This is a test multi-threading application with little amount of opportunities
             You have only one:
             1.Choose the number of operators of this CallCenter

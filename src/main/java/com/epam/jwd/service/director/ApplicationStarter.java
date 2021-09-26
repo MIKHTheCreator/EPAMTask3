@@ -28,10 +28,9 @@ public class ApplicationStarter {
     }
 
     public void start(int numOfOperators) {
-        service.execute(userGenerator);
-        service.execute(userRecallProducer);
-        createOperators(numOfOperators).forEach(service::execute);
-
+        service.submit(userGenerator);
+        service.submit(userRecallProducer);
+        createOperators(numOfOperators).forEach(service::submit);
     }
 
     private List<OperatorLoader> createOperators(int numOfOperators) {
