@@ -1,9 +1,9 @@
 package com.epam.jwd.controller;
 
 import com.epam.jwd.service.api.CallCenterService;
-import com.epam.jwd.service.generator.UserProducer;
+import com.epam.jwd.service.logic.producer.UserProducer;
 import com.epam.jwd.service.impl.CallCenterServiceImpl;
-import com.epam.jwd.service.logic.OperatorLoader;
+import com.epam.jwd.service.logic.consumer.OperatorLoader;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

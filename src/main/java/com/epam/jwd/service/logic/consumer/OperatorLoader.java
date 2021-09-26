@@ -1,4 +1,4 @@
-package com.epam.jwd.service.logic;
+package com.epam.jwd.service.logic.consumer;
 
 import com.epam.jwd.repository.entity.User;
 import com.epam.jwd.service.api.CallCenterService;

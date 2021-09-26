@@ -1,7 +1,8 @@
-package com.epam.jwd.service.generator;
+package com.epam.jwd.service.logic.producer;
 
 import com.epam.jwd.repository.entity.User;
 import com.epam.jwd.service.api.CallCenterService;
+import com.epam.jwd.service.generator.Generator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +12,7 @@ public class UserProducer implements Runnable{
 
     private final CallCenterService callCenterService;
     private final int userCount;
-    private final Random random;
+    private final Generator generator;
 
     private static final Logger log = LogManager.getLogger(UserProducer.class);
     private static final String GENERATOR_MULTI_USER_LOG_MESSAGE = "User has been generated";
@@ -20,7 +21,7 @@ public class UserProducer implements Runnable{
     public UserProducer(CallCenterService callCenterService, int userCount) {
         this.callCenterService = callCenterService;
         this.userCount = userCount;
-        this.random = new Random();
+        this.generator = new Generator(new Random());
     }
 
     @Override
@@ -28,9 +29,9 @@ public class UserProducer implements Runnable{
 
         for(int i = 0; i < userCount; i++) {
             try {
-                User user = new User(Generator.generateId(), Generator.generateName(random),
-                        Generator.generateAge(random), Generator.generateGender(random),
-                        Generator.generateVisitAim(random), Generator.generateRecallChance(random));
+                User user = new User(generator.generateId(), generator.generateName(),
+                        generator.generateAge(), generator.generateGender(),
+                        generator.generateVisitAim(), generator.generateRecallChance());
                 callCenterService.saveUser(user);
                 callCenterService.addUserToUserCache(user);
 

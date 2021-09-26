@@ -9,6 +9,8 @@ import java.util.UUID;
 
 public class Generator {
 
+    private final Random random;
+
     private static final Logger log = LogManager.getLogger(Generator.class);
     private static final String[] names;
     private static final String[] aims;
@@ -24,32 +26,36 @@ public class Generator {
         aims = new String[]{"'Selling problems'", "'Payment method problems'", "'Bad connection'", "'Resource not found'"};
     }
 
-    public static String generateId() {
+    public Generator(Random random) {
+        this.random = random;
+    }
+
+    public String generateId() {
         log.debug(GENERATE_ID_LOG_MESSAGE);
         return UUID.randomUUID().toString();
     }
 
-    public static String generateName(Random random) {
+    public String generateName() {
         log.debug(GENERATE_NAME_LOG_MESSAGE);
         return names[random.nextInt(names.length)];
     }
 
-    public static int generateAge(Random random) {
+    public int generateAge() {
         log.debug(GENERATE_AGE_LOG_MESSAGE);
         return random.nextInt(MAX_PERSON_AGE);
     }
 
-    public static Gender generateGender(Random random) {
+    public Gender generateGender() {
         log.debug(GENERATE_GENDER_LOG_MESSAGE);
         return Gender.values()[random.nextInt(Gender.values().length)];
     }
 
-    public static String generateVisitAim(Random random) {
+    public String generateVisitAim() {
         log.debug(GENERATE_VISIT_AIM_LOG_MESSAGE);
         return aims[random.nextInt(aims.length)];
     }
 
-    public static boolean generateRecallChance(Random random) {
+    public boolean generateRecallChance() {
         return random.nextBoolean();
     }
 }
