@@ -17,7 +17,7 @@ public class UserCacheImpl implements UserCache<String, User> {
     }
 
     public static UserCacheImpl getInstance() {
-        if (instance != null) {
+        if (instance == null) {
             instance = new UserCacheImpl();
         }
 
