@@ -30,8 +30,9 @@ public class UserProducer implements Runnable{
             try {
                 User user = new User(Generator.generateId(), Generator.generateName(random),
                         Generator.generateAge(random), Generator.generateGender(random),
-                        Generator.generateVisitAim(random));
+                        Generator.generateVisitAim(random), Generator.generateRecallChance(random));
                 callCenterService.saveUser(user);
+                callCenterService.addUserToUserCache(user);
 
                 log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 
