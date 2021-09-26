@@ -15,7 +15,6 @@ public class UserProducer implements Runnable{
     private final Generator generator;
 
     private static final Logger log = LogManager.getLogger(UserProducer.class);
-    private static final String GENERATOR_MULTI_USER_LOG_MESSAGE = "User has been generated";
     private static final String THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
     private static final String RECALLER_NAME = "Kirkorov";
 
@@ -37,8 +36,6 @@ public class UserProducer implements Runnable{
                 callCenterService.addUserToUserCache(user);
 
                 deleteRecaller(user);
-
-                log.debug(GENERATOR_MULTI_USER_LOG_MESSAGE);
 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

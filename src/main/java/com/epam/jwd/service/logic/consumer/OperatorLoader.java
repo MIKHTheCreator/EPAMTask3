@@ -24,7 +24,6 @@ public class OperatorLoader implements Runnable{
              his/her gender was %s
              his/her chance of recall was %b
             """;
-    private static final String SERVING_USER_LOG_MESSAGE = "User has been gotten from queue by operator";
     private static final String INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
     private static final String COUNT_OF_SERVED_USERS_MESSAGE = "Count of served users: %d\n\n";
     private static final int MILLISECONDS_TO_SECONDS_DELIMITER = 1000;
@@ -43,7 +42,6 @@ public class OperatorLoader implements Runnable{
 
                 Thread.sleep(workingTime);
 
-                log.debug(SERVING_USER_LOG_MESSAGE);
                 User user = callCenterService.getUserFromTheQueue();
                 System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(), operatorName, getSeconds(workingTime) , user.getVisitAim(),
                         user.getAge(), user.getGender().toString(), user.isRecall());
