@@ -23,7 +23,7 @@ public class CallCenterServiceImpl implements CallCenterService {
     @Override
     public void saveUser(User user) throws InterruptedException {
 
-            userQueue.save(user);
+        userQueue.save(user);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CallCenterServiceImpl implements CallCenterService {
     public void addUserToUserCache(User user) {
         lock.lock();
 
-        if(user.isRecall()) {
+        if (user.isRecall()) {
             userCache.addToUserCache(user);
             condition.signalAll();
         }
@@ -49,7 +49,7 @@ public class CallCenterServiceImpl implements CallCenterService {
     public User takeUserFromUserCache() throws InterruptedException {
         lock.lock();
 
-        if(userCache.isEmpty()) {
+        if (userCache.isEmpty()) {
             condition.await();
         }
 

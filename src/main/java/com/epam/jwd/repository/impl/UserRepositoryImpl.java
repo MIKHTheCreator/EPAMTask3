@@ -11,13 +11,13 @@ public class UserRepositoryImpl implements UserRepository<String, User> {
     private static UserRepositoryImpl instance;
     private final BlockingQueue<User> userStorage = new ArrayBlockingQueue<>(USER_QUEUE_CAPACITY, true);
 
-    private static final  int USER_QUEUE_CAPACITY = 10;
+    private static final int USER_QUEUE_CAPACITY = 10;
 
     private UserRepositoryImpl() {
     }
 
     public static UserRepositoryImpl getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new UserRepositoryImpl();
             return instance;
         }

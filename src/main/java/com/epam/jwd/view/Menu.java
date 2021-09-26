@@ -10,10 +10,10 @@ public class Menu {
             You have only one:
             1.Choose the number of operators of this CallCenter
             Now we have 4 active operators in our center!!!
-            
+                        
             """;
     private static final String LETS_START = "//Enter any key to start:\n";
-    private static final String APPLICATION_STARTING = "Application starting, enjoy the result!\n\n\n";
+    private static final String APPLICATION_STARTING = "Application starting, enjoy the result!\n";
 
 
     public void getStarterMenu() {
@@ -25,7 +25,7 @@ public class Menu {
 
         Scanner scanner = new Scanner(System.in);
 
-        if(scanner.hasNextLine()) {
+        if (scanner.hasNextLine()) {
             System.out.println(APPLICATION_STARTING);
         }
 

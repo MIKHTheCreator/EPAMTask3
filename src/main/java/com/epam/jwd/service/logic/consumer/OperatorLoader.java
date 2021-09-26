@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class OperatorLoader implements Runnable{
+public class OperatorLoader implements Runnable {
 
     private final CallCenterService callCenterService;
     private final String operatorName;
@@ -38,7 +38,7 @@ public class OperatorLoader implements Runnable{
 
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             try {
                 int workingTime = generator.generateTime();
 
@@ -47,7 +47,7 @@ public class OperatorLoader implements Runnable{
                 lock.lock();
                 User user = callCenterService.getUserFromTheQueue();
                 System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(),
-                        operatorName, getSeconds(workingTime) , user.getVisitAim(),
+                        operatorName, getSeconds(workingTime), user.getVisitAim(),
                         user.getAge(), user.getGender().toString());
                 System.out.println(num.addAndGet(1));
             } catch (InterruptedException e) {
@@ -60,6 +60,6 @@ public class OperatorLoader implements Runnable{
     }
 
     private int getSeconds(int timeInMillis) {
-        return  timeInMillis / MILLISECONDS_TO_SECONDS_DELIMITER;
+        return timeInMillis / MILLISECONDS_TO_SECONDS_DELIMITER;
     }
 }

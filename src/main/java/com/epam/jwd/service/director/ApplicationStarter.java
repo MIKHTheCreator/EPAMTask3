@@ -37,7 +37,7 @@ public class ApplicationStarter {
     private List<OperatorLoader> createOperators(int numOfOperators) {
         List<OperatorLoader> list = new ArrayList<>();
 
-        for(int i = 1; i <= numOfOperators; i++) {
+        for (int i = 1; i <= numOfOperators; i++) {
             list.add(new OperatorLoader(callCenterService, "ROBO-" + i));
         }
 

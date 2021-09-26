@@ -11,13 +11,13 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class UserProducer implements Runnable{
+public class UserProducer implements Runnable {
 
     private final CallCenterService callCenterService;
     private final int userCount;
     private final Generator generator;
     private final Lock lock = new ReentrantLock();
-    private  final Condition condition = lock.newCondition();
+    private final Condition condition = lock.newCondition();
 
     private static final Logger log = LogManager.getLogger(UserProducer.class);
     private static final String THREAD_INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
@@ -32,7 +32,7 @@ public class UserProducer implements Runnable{
     @Override
     public void run() {
 
-        for(int i = 0; i < userCount; i++) {
+        for (int i = 0; i < userCount; i++) {
             try {
                 User user = new User(generator.generateId(), generator.generateName(),
                         generator.generateAge(), generator.generateGender(),
@@ -54,7 +54,7 @@ public class UserProducer implements Runnable{
 
     private void deleteRecaller(User user)
             throws InterruptedException {
-        if(callCenterService.containsUser(user) && user.isRecall()
+        if (callCenterService.containsUser(user) && user.isRecall()
                 && user.getPersonName().equals(RECALLER_NAME)) {
             user.endCall();
             User deletedUser = callCenterService.getUserFromTheQueue();
