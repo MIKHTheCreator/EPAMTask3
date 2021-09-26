@@ -28,7 +28,6 @@ public class OperatorLoader implements Runnable {
             """;
     private static final String INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread has been interrupted";
     private static final int MILLISECONDS_TO_SECONDS_DELIMITER = 1000;
-    private static final AtomicInteger num = new AtomicInteger(0);
 
     public OperatorLoader(CallCenterService callCenterService, String operatorName) {
         this.callCenterService = callCenterService;
@@ -49,7 +48,6 @@ public class OperatorLoader implements Runnable {
                 System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(),
                         operatorName, getSeconds(workingTime), user.getVisitAim(),
                         user.getAge(), user.getGender().toString());
-                System.out.println(num.addAndGet(1));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
