@@ -3,13 +3,15 @@ package com.epam.jwd.repository.impl;
 import com.epam.jwd.repository.api.UserCache;
 import com.epam.jwd.repository.entity.User;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserCacheImpl implements UserCache<String, User> {
 
     private static UserCacheImpl instance = new UserCacheImpl();
-    private final List<User> userCache = new ArrayList<>();
+    private final List<User> userCache = new LinkedList<>();
+
+    private static final int FIRST_USER_IN_CACHE = 0;
 
     private UserCacheImpl() {
     }
@@ -28,7 +30,12 @@ public class UserCacheImpl implements UserCache<String, User> {
     }
 
     @Override
-    public boolean removeFromUserCache(User user) {
-        return userCache.remove(user);
+    public User removeFromUserCache() {
+        return userCache.remove(FIRST_USER_IN_CACHE);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return userCache.isEmpty();
     }
 }
