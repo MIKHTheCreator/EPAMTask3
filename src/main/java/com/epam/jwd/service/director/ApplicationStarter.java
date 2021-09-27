@@ -31,6 +31,7 @@ public class ApplicationStarter {
         service.execute(userGenerator);
         service.execute(userRecallProducer);
         createOperators(numOfOperators).forEach(service::execute);
+        service.shutdown();
     }
 
     private List<OperatorLoader> createOperators(int numOfOperators) {
