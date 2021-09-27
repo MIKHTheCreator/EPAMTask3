@@ -12,7 +12,7 @@ public class UserRecallProducer implements Runnable {
 
     private static final Logger log = LogManager.getLogger(UserRecallProducer.class);
     private static final String INTERRUPTED_EXCEPTION_LOG_MESSAGE = "Thread ha been interrupted";
-    private static final int RECALL_TIME = 1000;
+    private static final int RECALL_TIME = 5000;
 
     public UserRecallProducer(CallCenterService callCenterService) {
         this.callCenterService = callCenterService;
