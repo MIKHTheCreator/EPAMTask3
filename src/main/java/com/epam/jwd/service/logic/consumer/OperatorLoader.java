@@ -6,16 +6,12 @@ import com.epam.jwd.service.generator.WorkingTimeGenerator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class OperatorLoader implements Runnable {
 
     private final CallCenterService callCenterService;
     private final String operatorName;
     private final WorkingTimeGenerator generator;
-    private final Lock lock = new ReentrantLock();
 
     private static final Logger log = LogManager.getLogger(OperatorLoader.class);
 
@@ -43,7 +39,6 @@ public class OperatorLoader implements Runnable {
 
                 Thread.sleep(workingTime);
 
-                lock.lock();
                 User user = callCenterService.getUserFromTheQueue();
                 System.out.printf(SERVING_USER_INFO_MESSAGE, user.getPersonName(),
                         operatorName, getSeconds(workingTime), user.getVisitAim(),
@@ -51,8 +46,6 @@ public class OperatorLoader implements Runnable {
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 log.error(INTERRUPTED_EXCEPTION_LOG_MESSAGE, e);
-            } finally {
-                lock.unlock();
             }
         }
     }

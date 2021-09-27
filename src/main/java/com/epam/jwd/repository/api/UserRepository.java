@@ -9,4 +9,6 @@ public interface UserRepository<V, T extends Person<V>> {
     void save(T user) throws InterruptedException;
 
     boolean containsUser(T user);
+
+    boolean removeUser(T user);
 }

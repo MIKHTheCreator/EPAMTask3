@@ -9,7 +9,7 @@ import java.util.concurrent.BlockingQueue;
 public class UserRepositoryImpl implements UserRepository<String, User> {
 
     private static UserRepositoryImpl instance;
-    private final BlockingQueue<User> userStorage = new ArrayBlockingQueue<>(USER_QUEUE_CAPACITY, true);
+    private final BlockingQueue<User> userStorage = new ArrayBlockingQueue<>(USER_QUEUE_CAPACITY);
 
     private static final int USER_QUEUE_CAPACITY = 10;
 
@@ -38,5 +38,10 @@ public class UserRepositoryImpl implements UserRepository<String, User> {
     @Override
     public boolean containsUser(User user) {
         return userStorage.contains(user);
+    }
+
+    @Override
+    public boolean removeUser(User user) {
+        return userStorage.remove(user);
     }
 }

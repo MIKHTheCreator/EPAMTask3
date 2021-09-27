@@ -29,7 +29,7 @@ class CallCenterServiceImplTest {
     @Test
     void saveUser() throws InterruptedException {
         callCenterService.saveUser(testUser);
-        assertTrue(callCenterService.containsUser(testUser));
+        assertTrue(callCenterService.containsUserInQueue(testUser));
     }
 
     @Test
@@ -55,12 +55,12 @@ class CallCenterServiceImplTest {
     @Test
     void containsExistingUser() throws InterruptedException {
         callCenterService.saveUser(testUser);
-        assertTrue(callCenterService.containsUser(testUser));
+        assertTrue(callCenterService.containsUserInQueue(testUser));
     }
 
     @Test
     void containsNotExistingUser() throws InterruptedException {
         callCenterService.saveUser(testUser);
-        assertFalse(callCenterService.containsUser(testUser1));
+        assertFalse(callCenterService.containsUserInQueue(testUser1));
     }
 }

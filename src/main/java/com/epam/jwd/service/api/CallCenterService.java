@@ -13,5 +13,7 @@ public interface CallCenterService {
 
     User takeUserFromUserCache() throws InterruptedException;
 
-    boolean containsUser(User user);
+    boolean containsUserInQueue(User user);
+
+    boolean removeUserFromQueue(User user);
 }

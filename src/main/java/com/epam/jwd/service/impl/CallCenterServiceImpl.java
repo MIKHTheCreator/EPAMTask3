@@ -61,7 +61,12 @@ public class CallCenterServiceImpl implements CallCenterService {
     }
 
     @Override
-    public boolean containsUser(User user) {
+    public boolean containsUserInQueue(User user) {
         return userQueue.containsUser(user);
+    }
+
+    @Override
+    public boolean removeUserFromQueue(User user) {
+        return userQueue.removeUser(user);
     }
 }
