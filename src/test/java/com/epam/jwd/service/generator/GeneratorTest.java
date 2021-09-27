@@ -14,7 +14,6 @@ class GeneratorTest {
 
     private Generator generator;
 
-
     @BeforeAll
     void beforeAll() {
         this.generator = new Generator(new Random());
