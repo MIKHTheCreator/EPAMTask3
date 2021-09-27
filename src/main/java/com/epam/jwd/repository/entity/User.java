@@ -9,7 +9,7 @@ public class User extends Person<String> {
     private String visitAim;
     private boolean recall;
 
-    private static final String CALLING_MESSAGE = "Calling again...";
+    private static final String CALLING_MESSAGE = "%s(age:%d, visit aim:%s) is calling again, I guess you don't forget about me...\n\n";
     private static final String END_CALL_MESSAGE = "End calling, the queue is too big for me, I'll better go knitting(Maybe I'll recall later)...\n";
 
     public User(String id, String name, int age, Gender gender, String visitAim, boolean recall) {
@@ -53,7 +53,7 @@ public class User extends Person<String> {
     }
 
     public void recall() {
-        System.out.println(CALLING_MESSAGE);
+        System.out.printf(CALLING_MESSAGE, getPersonName(), getAge(), getVisitAim());
     }
 
     public void endCall() {
